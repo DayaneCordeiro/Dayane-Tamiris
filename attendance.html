@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar Presença | P&V</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="menu-header">
+        <div class="container">
+            <a href="index.html" class="logo">P & V</a>
+            <button class="menu-toggle" aria-label="Abrir Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="menu-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="gifts.html">Presentes</a></li>
+                    <li><a href="attendance.html" class="active">Confirmar Presença</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main style="padding-top: 100px; text-align: center;">
+        <h1 style="font-size: 3em; color: #333;">Confirme sua Presença</h1>
+        <p style="margin-top: 20px;">Por favor, nos informe se você poderá comparecer até a data limite.</p>
+        
+        <div style="height: 60vh; background-color: #f0f0f0; margin-top: 50px; padding: 50px;">
+            <p>Aqui deve ser colocado um formulário simples (Nome, E-mail, Quantidade de Pessoas) que enviará os dados para você.</p>
+            <form style="margin-top: 30px;">
+                <input type="text" placeholder="Seu Nome Completo" style="padding: 10px; margin: 10px; width: 300px; display: block; margin: 10px auto;"><br>
+                <select style="padding: 10px; margin: 10px; width: 320px;">
+                    <option>Sim, comparecerei!</option>
+                    <option>Não poderei comparecer.</option>
+                </select><br>
+                <button type="submit" style="margin-top: 20px; padding: 10px 30px; background-color: #B8D8D8; color: #333; border: 1px solid #6B8E8E; cursor: pointer;">Enviar Confirmação</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="script/script.js"></script>
+</body>
+</html>

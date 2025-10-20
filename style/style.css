@@ -2,5 +2,219 @@
   font-family: "Mea Culpa", cursive;
   font-weight: 400;
   font-style: normal;
-  font-size: 33pt;
+  font-size: 60pt;
+}
+
+/* Variáveis de Cores */
+:root {
+    --serenity-blue: #B8D8D8; /* Azul Serenity claro para o fundo */
+    --serenity-dark: #6B8E8E; /* Azul Serenity mais escuro para o texto/hover */
+    --text-color: #333;
+}
+
+/* Estilos Gerais e Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Playfair Display', serif; /* Fonte elegante */
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px; /* Altura do menu */
+}
+
+/* Estilo do Menu (Header Fixo) */
+.menu-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+}
+
+/* Estilo do Logo/Título */
+.logo {
+    font-size: 2em;
+    font-weight: 700;
+    color: var(--serenity-dark);
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+/* Estilo da Navegação (Links) */
+.menu-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px; /* Espaçamento entre os links */
+}
+
+.menu-nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.1em;
+    padding: 10px 0;
+    position: relative;
+    transition: color 0.3s;
+}
+
+/* Efeito de Sublinhado ao Hover (estilo Casar.com) */
+.menu-nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 5px; /* Posição da linha */
+    width: 0;
+    height: 2px;
+    background-color: var(--serenity-dark);
+    transition: width 0.3s ease-out;
+}
+
+.menu-nav a:hover,
+.menu-nav a.active {
+    color: var(--serenity-dark); /* Cor escura ao passar o mouse */
+}
+
+.menu-nav a:hover::after,
+.menu-nav a.active::after {
+    width: 100%; /* Linha preenche ao passar o mouse */
+}
+
+/* ---------------------------------- */
+/* Responsividade (Menu Hamburguer) */
+/* ---------------------------------- */
+
+.menu-toggle {
+    display: none; /* Esconde o botão por padrão em telas maiores */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    margin: 5px 0;
+    transition: all 0.3s;
+}
+
+/* Efeito X ao abrir o menu */
+.menu-header.open .menu-toggle span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.menu-header.open .menu-toggle span:nth-child(2) {
+    opacity: 0;
+}
+.menu-header.open .menu-toggle span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Mostra o botão em telas menores */
+    }
+
+    .menu-nav {
+        /* Menu escondido por padrão */
+        position: absolute;
+        top: 70px; /* Abaixo do header */
+        left: 0;
+        width: 100%;
+        background-color: var(--serenity-blue);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        max-height: 0; /* Começa fechado */
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+    }
+    
+    .menu-header.open .menu-nav {
+        max-height: 300px; /* Altura suficiente para mostrar os itens */
+    }
+
+    .menu-nav ul {
+        flex-direction: column; /* Links um abaixo do outro */
+        align-items: center;
+        padding: 20px 0;
+    }
+
+    .menu-nav li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu-nav a {
+        display: block;
+        padding: 15px 0;
+        font-size: 1.2em;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .menu-nav a::after {
+        /* Desativa o efeito de linha para o menu vertical */
+        content: none;
+    }
+}
+
+/* --- Novo Trecho para o Banner da Capa --- */
+.hero-banner {
+    position: relative;
+    width: 100%;
+    /* Substitua 'caminho-para-sua-imagem.jpg' pela imagem real do casal */
+    background-image: url('../img/fundo.png'); 
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Altura do banner, ajuste conforme necessário */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 70px; /* Compensa a altura do menu fixo */
+    color: white; /* Cor do texto sobre a imagem */
+}
+
+/* Camada escura sobre a imagem para destacar o texto */
+.hero-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3); /* Opacidade de 30% */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+}
+
+.hero-content h1 {
+    font-family: "Mea Culpa", cursive;
+    font-size: 70pt; /* Tamanho grande para o nome */
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content p {
+    font-family: "Mea Culpa", cursive;
+    font-size: 1.5em;
+    margin-top: 10px;
+    letter-spacing: 5px;
 }
