@@ -14,95 +14,7 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <style>
-        :root {
-            --serenity-blue: #88B0CA;
-            --serenity-blue-dark: #6A93AD;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-        }
-        
-        .serenity-blue {
-            color: var(--serenity-blue);
-        }
-        
-        .bg-serenity-blue {
-            background-color: var(--serenity-blue);
-        }
-        
-        .bg-serenity-blue-light {
-            background-color: rgba(136, 176, 202, 0.1);
-        }
-        
-        .border-serenity-blue {
-            border-color: var(--serenity-blue);
-        }
-        
-        .hover-serenity:hover {
-            color: var(--serenity-blue);
-        }
-        
-        .hero-overlay {
-            background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.6));
-        }
-        
-        .gradient-bg {
-            background: linear-gradient(to bottom, rgba(136, 176, 202, 0.1), white);
-        }
-        
-        .gradient-bg-reverse {
-            background: linear-gradient(to bottom, white, rgba(136, 176, 202, 0.1));
-        }
-        
-        .card-shadow {
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
-        
-        .card-shadow-lg {
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-        
-        .image-hover {
-            transition: transform 0.3s ease;
-        }
-        
-        .image-hover:hover {
-            transform: scale(1.05);
-        }
-        
-        #mobile-menu {
-            display: none;
-        }
-        
-        #mobile-menu.show {
-            display: block;
-        }
-
-        /* Animação do contador */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .fade-in {
-            animation: fadeIn 0.6s ease-out;
-        }
-
-        .title-font {
-        font-family: "Mea Culpa", cursive;
-        font-weight: 400;
-        font-style: normal;
-        font-size: 75pt;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
 </head>
 <body>
     <!-- Header -->
@@ -118,7 +30,7 @@
                 </div>
                 
                 <nav class="hidden md:flex gap-8">
-                    <a href="#home" class="serenity-blue transition-colors">Home</a>
+                    <a href="index.html" class="serenity-blue transition-colors">Início</a>
                     <a href="#presentes" class="text-gray-600 hover-serenity transition-colors">Presentes</a>
                     <a href="#confirmar" class="text-gray-600 hover-serenity transition-colors">Confirmar Presença</a>
                 </nav>
@@ -133,7 +45,7 @@
             </div>
 
             <div id="mobile-menu" class="md:hidden mt-4 pb-2">
-                <a href="#home" class="block w-full text-left py-2 px-4 rounded serenity-blue bg-serenity-blue-light">Home</a>
+                <a href="index.html" class="block w-full text-left py-2 px-4 rounded serenity-blue bg-serenity-blue-light">Início</a>
                 <a href="#presentes" class="block w-full text-left py-2 px-4 rounded text-gray-600 hover:bg-gray-50">Presentes</a>
                 <a href="#confirmar" class="block w-full text-left py-2 px-4 rounded text-gray-600 hover:bg-gray-50">Confirmar Presença</a>
             </div>
@@ -158,7 +70,6 @@
                     <p style="font-size: 25pt;">&#x2661;</p>
                     <p class="text-xl">25 . 07 . 2026</p>
                 </div>
-                
             </div>
         </section>
 
@@ -168,19 +79,19 @@
                 <h2 class="text-3xl md:text-4xl mb-8 serenity-blue font-light">Contagem Regressiva</h2>
                 <div class="flex justify-center gap-4 md:gap-8 flex-wrap">
                     <div class="bg-white rounded-lg card-shadow-lg p-6 min-w-[100px]">
-                        <div class="text-4xl serenity-blue font-light">236</div>
+                        <div class="text-4xl serenity-blue font-light">00</div>
                         <div class="text-gray-600 mt-2">Dias</div>
                     </div>
                     <div class="bg-white rounded-lg card-shadow-lg p-6 min-w-[100px]">
-                        <div class="text-4xl serenity-blue font-light">12</div>
+                        <div class="text-4xl serenity-blue font-light">00</div>
                         <div class="text-gray-600 mt-2">Horas</div>
                     </div>
                     <div class="bg-white rounded-lg card-shadow-lg p-6 min-w-[100px]">
-                        <div class="text-4xl serenity-blue font-light">45</div>
+                        <div class="text-4xl serenity-blue font-light">00</div>
                         <div class="text-gray-600 mt-2">Minutos</div>
                     </div>
                     <div class="bg-white rounded-lg card-shadow-lg p-6 min-w-[100px]">
-                        <div class="text-4xl serenity-blue font-light">30</div>
+                        <div class="text-4xl serenity-blue font-light">00</div>
                         <div class="text-gray-600 mt-2">Segundos</div>
                     </div>
                 </div>
@@ -192,7 +103,7 @@
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl md:text-4xl text-center mb-12 serenity-blue font-light">Detalhes do Evento</h2>
                 
-                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-1 gap-8 max-w-2xl mx-auto">
                     <!-- Cerimônia -->
                     <div class="bg-white rounded-lg card-shadow-lg p-8 border-t-4 border-serenity-blue">
                         <h3 class="text-2xl mb-6 text-center serenity-blue font-light">Cerimônia</h3>
@@ -207,7 +118,7 @@
                                 </svg>
                                 <div>
                                     <p class="text-gray-600">Data</p>
-                                    <p>15 de Junho de 2025</p>
+                                    <p>25 de Julho de 2026</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
@@ -218,7 +129,7 @@
                                 </svg>
                                 <div>
                                     <p class="text-gray-600">Horário</p>
-                                    <p>16:00h</p>
+                                    <p>14:30h</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
@@ -229,39 +140,68 @@
                                 </svg>
                                 <div>
                                     <p class="text-gray-600">Local</p>
-                                    <p>Igreja Nossa Senhora das Graças</p>
-                                    <p class="text-sm text-gray-500">Rua das Flores, 123 - Centro</p>
+                                    <p>Espaço Fazenda Paradiso</p>
+                                    <p class="text-sm text-gray-500">Zona Rural - Liberdade 2, Contagem</p>
+                                    <a href="https://maps.app.goo.gl/ywfEahwi2Dj6im5h7?g_st=ipc" 
+                                        target="_blank" rel="noopener noreferrer" 
+                                        class="inline-flex items-center justify-center gap-2 w-full bg-[#88B0CA] hover:bg-[#6A93AD] text-white px-4 py-2 rounded-lg transition-colors mt-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+                                            stroke-linejoin="round" class="lucide lucide-map-pin w-4 h-4" aria-hidden="true">
+                                            <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
+                                            <circle cx="12" cy="10" r="3"></circle>
+                                        </svg>
+                                        Ver no Google Maps
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
 
-                    <!-- Recepção -->
+        <!-- Manual do Convidado -->
+        <section class="py-16">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl text-center mb-12 serenity-blue font-light">Manual do Convidado</h2>
+                
+                <div class="grid md:grid-cols-1 gap-8 max-w-5xl mx-auto">
+                    <!-- Cerimônia -->
                     <div class="bg-white rounded-lg card-shadow-lg p-8 border-t-4 border-serenity-blue">
-                        <h3 class="text-2xl mb-6 text-center serenity-blue font-light">Recepção</h3>
+                        <h3 class="text-2xl mb-6 text-center serenity-blue font-light">Orientações</h3>
                         <div class="space-y-4">
                             <div class="flex items-start gap-3">
                                 <!-- Calendar Icon -->
-                                <svg class="w-5 h-5 mt-1 serenity-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                <svg class="w-7 h-7 mt-1 serenity-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
                                 <div>
-                                    <p class="text-gray-600">Data</p>
-                                    <p>15 de Junho de 2025</p>
+                                    <p class="text-gray-600">Cofirmação de presença</p>
+                                    <p>Para garantir que teremos o brigadeiro na medida certa e uma cadeira fofinha te esperando, precisamos da sua confirmação! Mande sua confirmação [Link/Telefone] até o dia [Data].</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
                                 <!-- Clock Icon -->
-                                <svg class="w-5 h-5 mt-1 serenity-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-7 h-7 mt-1 serenity-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <circle cx="12" cy="12" r="10"></circle>
                                     <polyline points="12 6 12 12 16 14"></polyline>
                                 </svg>
                                 <div>
-                                    <p class="text-gray-600">Horário</p>
-                                    <p>18:00h</p>
+                                    <p class="text-gray-600">Pontualidade</p>
+                                    <p>As noivas não querem chorar de emoção com ninguém de fora! A cerimônia começará às [Horário]. Se quiser chegue com uns minutinhos de antecedência para garantir o melhor lugar e não perder o 'Sim' mais importante das nossas vidas!</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <!-- Dress Code Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#91A8D0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 serenity-blue">
+<path d="M6 4l2-1.5L10 4h4l2-1.5L18 4l3 2v3l-2 1-1 3v8a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-8L5 10 3 9V6l3-2z"/>
+<line x1="12" y1="8" x2="12" y2="20"/>
+</svg>
+                                <div>
+                                    <p class="text-gray-600">Dress Code</p>
+                                    <p>Todas essas nuances são exclusivas das noivas neste dia:<br>
+                                        Branco, off-white, gelo, champagne e azul serenity.<br>
+                                        Escolha qualquer outra cor incrível para brilhar, mas deixe o branco reservado para as estrelas da festa.</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
@@ -271,9 +211,47 @@
                                     <circle cx="12" cy="10" r="3"></circle>
                                 </svg>
                                 <div>
-                                    <p class="text-gray-600">Local</p>
-                                    <p>Espaço Garden</p>
-                                    <p class="text-sm text-gray-500">Av. das Palmeiras, 456 - Jardins</p>
+                                    <p class="text-gray-600">Flash, Clicks e Emoção!</p>
+                                    <p>Queremos que vocês capturem cada sorriso, cada brinde e cada passo de dança!<br>
+                                        Fiquem à vontade para registrar muito o nosso dia!<br>
+                                        A única regrinha de ouro é: durante a cerimônia, por favor, fiquem atentos para não invadir o espaço do nosso fotógrafo e cinegrafista.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <!-- MapPin Icon -->
+                                <svg class="w-5 h-5 mt-1 serenity-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <div>
+                                    <p class="text-gray-600">Você é VIP!</p>
+                                    <p>Você é muito especial para nós, e cada lugarzinho foi pensado com muito carinho! Seu convite é individual e nominal.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <!-- MapPin Icon -->
+                                <svg class="w-5 h-5 mt-1 serenity-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <div>
+                                    <p class="text-gray-600">De olho nos pequenos</p>
+                                    <p>Amamos a alegria e a energia dos nossos mini-convidados! Eles são muito bem-vindos, mas, como não teremos monitores ou Espaço Kids, pedimos que os papais e mamães mantenham sempre um olho atento nos seus pequenos exploradores durante a festa.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <!-- MapPin Icon -->
+                                <svg class="w-5 h-5 mt-1 serenity-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <div>
+                                    <p class="text-gray-600">Alerta de Aventura</p>
+                                    <p>O local da nossa festa é lindo e tem um lago charmoso que faz parte do cenário! Ele é perfeito para fotos... e só para fotos! 📸<br>
+                                    Por segurança, pedimos a todos (especialmente os pequenos aventureiros) que mantenham distância e fiquem longe da água, pois não é permitido nadar no local.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -338,9 +316,9 @@
                         <svg class="w-8 h-8 serenity-blue" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                         </svg>
-                        <span class="text-2xl serenity-blue">Ana & Carlos</span>
+                        <span class="text-2xl serenity-blue">Dayane & Tamiris</span>
                     </div>
-                    <p class="text-gray-600">15 de Junho de 2025</p>
+                    <p class="text-gray-600">25 de Julho de 2026</p>
                 </div>
 
                 <!-- Redes Sociais -->
@@ -373,9 +351,9 @@
 
                 <!-- Copyright -->
                 <div class="text-center text-gray-600 text-sm">
-                    <p>© 2026 Dayane & Tamiris. Feito com muito amor.</p>
+                    <p>© <span id="anoAtual"></span> Dayane & Tamiris. Feito com muito amor.</p>
                     <p class="mt-2 text-xs text-gray-500">
-                        TS Arte Digital - Todos os direitos reservados
+                        TS Arte Digital & DC Engenharia de Software <br> Todos os direitos reservados.
                     </p>
                 </div>
             </div>
@@ -383,55 +361,6 @@
     </footer>
 
     <!-- JavaScript -->
-    <script>
-        // Toggle Mobile Menu
-        function toggleMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('show');
-        }
-
-        // Smooth Scroll for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-                // Close mobile menu if open
-                const menu = document.getElementById('mobile-menu');
-                if (menu.classList.contains('show')) {
-                    menu.classList.remove('show');
-                }
-            });
-        });
-
-        // Countdown Timer (optional - real countdown)
-        function updateCountdown() {
-            const weddingDate = new Date('2026-07-25T15:00:00').getTime();
-            const now = new Date().getTime();
-            const distance = weddingDate - now;
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Update the countdown elements
-            const countdownBoxes = document.querySelectorAll('.card-shadow-lg');
-            if (countdownBoxes.length >= 4) {
-                countdownBoxes[0].querySelector('.text-4xl').textContent = days;
-                countdownBoxes[1].querySelector('.text-4xl').textContent = hours;
-                countdownBoxes[2].querySelector('.text-4xl').textContent = minutes;
-                countdownBoxes[3].querySelector('.text-4xl').textContent = seconds;
-            }
-        }
-
-        // Update countdown every second
-        setInterval(updateCountdown, 1000);
-        updateCountdown(); // Initial call
-    </script>
+    <script src="script/script.js"></script>
 </body>
 </html>
