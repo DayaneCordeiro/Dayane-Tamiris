@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,46 +10,428 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mea+Culpa&display=swap" rel="stylesheet">
     <!-- End font -->
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root {
+            --serenity-blue: #88B0CA;
+            --serenity-blue-dark: #6A93AD;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        .serenity-blue {
+            color: var(--serenity-blue);
+        }
+        
+        .bg-serenity-blue {
+            background-color: var(--serenity-blue);
+        }
+        
+        .bg-serenity-blue-light {
+            background-color: rgba(136, 176, 202, 0.1);
+        }
+        
+        .border-serenity-blue {
+            border-color: var(--serenity-blue);
+        }
+        
+        .hover-serenity:hover {
+            color: var(--serenity-blue);
+        }
+        
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.6));
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(to bottom, rgba(136, 176, 202, 0.1), white);
+        }
+        
+        .gradient-bg-reverse {
+            background: linear-gradient(to bottom, white, rgba(136, 176, 202, 0.1));
+        }
+        
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .card-shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .image-hover {
+            transition: transform 0.3s ease;
+        }
+        
+        .image-hover:hover {
+            transform: scale(1.05);
+        }
+        
+        #mobile-menu {
+            display: none;
+        }
+        
+        #mobile-menu.show {
+            display: block;
+        }
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+        /* Animação do contador */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
 
-    <link rel="stylesheet" type="text/css" href="style/style.css">
+        .title-font {
+        font-family: "Mea Culpa", cursive;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 75pt;
+        }
+    </style>
 </head>
 <body>
-    <header class="menu-header">
-        <div class="container">
-            <!-- <a href="index.html" class="logo">D & T</a> -->
-            <button class="menu-toggle" aria-label="Abrir Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <nav class="menu-nav">
-                <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="gifts.html">Presentes</a></li>
-                    <li><a href="attendance.html">Confirmar Presença</a></li>
-                </ul>
-            </nav>
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2 cursor-pointer">
+                    <!-- Heart Icon -->
+                    <svg class="w-6 h-6 serenity-blue" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    <span class="text-xl serenity-blue">Dayane & Tamiris</span>
+                </div>
+                
+                <nav class="hidden md:flex gap-8">
+                    <a href="#home" class="serenity-blue transition-colors">Home</a>
+                    <a href="#presentes" class="text-gray-600 hover-serenity transition-colors">Presentes</a>
+                    <a href="#confirmar" class="text-gray-600 hover-serenity transition-colors">Confirmar Presença</a>
+                </nav>
+
+                <div class="md:hidden">
+                    <button onclick="toggleMenu()" class="serenity-blue">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="md:hidden mt-4 pb-2">
+                <a href="#home" class="block w-full text-left py-2 px-4 rounded serenity-blue bg-serenity-blue-light">Home</a>
+                <a href="#presentes" class="block w-full text-left py-2 px-4 rounded text-gray-600 hover:bg-gray-50">Presentes</a>
+                <a href="#confirmar" class="block w-full text-left py-2 px-4 rounded text-gray-600 hover:bg-gray-50">Confirmar Presença</a>
+            </div>
         </div>
     </header>
 
-    <section class="hero-banner">
-        <div class="hero-content">
-            <h1>Dayane & Tamiris</h1>
-            <p>25 · 07 · 2026</p>
-        </div>
-    </section>
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-[600px] flex items-center justify-center overflow-hidden">
+            <img 
+                src="img/fundo-neve.jpeg"
+                alt="Casal de noivos"
+                class="absolute inset-0 w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 hero-overlay"></div>
+            
+            <div class="relative z-10 text-center text-white px-4 fade-in">
+                <h1 class="title-font">Dayane & Tamiris</h1>
+                <p class="text-2xl md:text-3xl font-light">Vamos nos casar!</p>
+                <div>
+                    <p style="font-size: 25pt;">&#x2661;</p>
+                    <p class="text-xl">25 . 07 . 2026</p>
+                </div>
+                
+            </div>
+        </section>
 
-    <main style="padding: 50px 20px; text-align: center;">
-        <h2 style="font-size: 2.5em; margin-bottom: 20px;">Nossa História</h2>
-        <p>Use este espaço para contar sobre o casal...</p>
+        <!-- Contador de Dias -->
+        <section class="py-16 gradient-bg">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-4xl mb-8 serenity-blue font-light">Contagem Regressiva</h2>
+                <div class="flex justify-center gap-4 md:gap-8 flex-wrap">
+                    <div class="bg-white rounded-lg card-shadow-lg p-6 min-w-[100px]">
+                        <div class="text-4xl serenity-blue font-light">236</div>
+                        <div class="text-gray-600 mt-2">Dias</div>
+                    </div>
+                    <div class="bg-white rounded-lg card-shadow-lg p-6 min-w-[100px]">
+                        <div class="text-4xl serenity-blue font-light">12</div>
+                        <div class="text-gray-600 mt-2">Horas</div>
+                    </div>
+                    <div class="bg-white rounded-lg card-shadow-lg p-6 min-w-[100px]">
+                        <div class="text-4xl serenity-blue font-light">45</div>
+                        <div class="text-gray-600 mt-2">Minutos</div>
+                    </div>
+                    <div class="bg-white rounded-lg card-shadow-lg p-6 min-w-[100px]">
+                        <div class="text-4xl serenity-blue font-light">30</div>
+                        <div class="text-gray-600 mt-2">Segundos</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detalhes do Evento -->
+        <section class="py-16">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl text-center mb-12 serenity-blue font-light">Detalhes do Evento</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <!-- Cerimônia -->
+                    <div class="bg-white rounded-lg card-shadow-lg p-8 border-t-4 border-serenity-blue">
+                        <h3 class="text-2xl mb-6 text-center serenity-blue font-light">Cerimônia</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <!-- Calendar Icon -->
+                                <svg class="w-5 h-5 mt-1 serenity-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                <div>
+                                    <p class="text-gray-600">Data</p>
+                                    <p>15 de Junho de 2025</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <!-- Clock Icon -->
+                                <svg class="w-5 h-5 mt-1 serenity-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <div>
+                                    <p class="text-gray-600">Horário</p>
+                                    <p>16:00h</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <!-- MapPin Icon -->
+                                <svg class="w-5 h-5 mt-1 serenity-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <div>
+                                    <p class="text-gray-600">Local</p>
+                                    <p>Igreja Nossa Senhora das Graças</p>
+                                    <p class="text-sm text-gray-500">Rua das Flores, 123 - Centro</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recepção -->
+                    <div class="bg-white rounded-lg card-shadow-lg p-8 border-t-4 border-serenity-blue">
+                        <h3 class="text-2xl mb-6 text-center serenity-blue font-light">Recepção</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <!-- Calendar Icon -->
+                                <svg class="w-5 h-5 mt-1 serenity-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                <div>
+                                    <p class="text-gray-600">Data</p>
+                                    <p>15 de Junho de 2025</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <!-- Clock Icon -->
+                                <svg class="w-5 h-5 mt-1 serenity-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <div>
+                                    <p class="text-gray-600">Horário</p>
+                                    <p>18:00h</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <!-- MapPin Icon -->
+                                <svg class="w-5 h-5 mt-1 serenity-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <div>
+                                    <p class="text-gray-600">Local</p>
+                                    <p>Espaço Garden</p>
+                                    <p class="text-sm text-gray-500">Av. das Palmeiras, 456 - Jardins</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nossa História -->
+        <section class="py-16 gradient-bg-reverse">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl text-center mb-12 serenity-blue font-light">Nossa História</h2>
+                
+                <div class="max-w-3xl mx-auto">
+                    <div class="bg-white rounded-lg card-shadow-lg p-8 md:p-12">
+                        <p class="text-center text-gray-700 leading-relaxed mb-6">
+                            Nossa história começou há 5 anos, quando nos conhecemos em uma viagem inesquecível. 
+                            Desde então, construímos uma jornada cheia de amor, cumplicidade e sonhos compartilhados.
+                        </p>
+                        <p class="text-center text-gray-700 leading-relaxed">
+                            Agora, estamos prontos para dar o próximo passo juntos e queremos compartilhar 
+                            esse momento especial com você, que faz parte da nossa história!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galeria Preview -->
+        <section class="py-16">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl text-center mb-12 serenity-blue font-light">Momentos Especiais</h2>
+                
+                <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                    <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg">
+                        <img
+                            src="https://images.unsplash.com/photo-1613067532651-7075a620c900?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWRkaW5nJTIwdmVudWUlMjBkZWNvcmF0aW9ufGVufDF8fHx8MTc2MTAxMjMwMXww&ixlib=rb-4.1.0&q=80&w=1080"
+                            alt="Decoração"
+                            class="w-full h-full object-cover image-hover"
+                        />
+                    </div>
+                    <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg">
+                        <img
+                            src="https://images.unsplash.com/photo-1611242890224-2bb501cc042f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyb21hbnRpYyUyMGZsb3dlcnMlMjBibHVlfGVufDF8fHx8MTc2MTA1Mjg4OHww&ixlib=rb-4.1.0&q=80&w=1080"
+                            alt="Flores"
+                            class="w-full h-full object-cover image-hover"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <audio controls>
-        <source src="music/partilhar.mp3" type="audio/mpeg">
-    </audio>
+    <!-- Footer -->
+    <footer class="bg-gradient-to-b from-white to-gray-50 border-t border-gray-200 py-12">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <!-- Logo e Nome -->
+                <div class="text-center mb-8">
+                    <div class="flex justify-center items-center gap-2 mb-4">
+                        <!-- Heart Icon -->
+                        <svg class="w-8 h-8 serenity-blue" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                        <span class="text-2xl serenity-blue">Ana & Carlos</span>
+                    </div>
+                    <p class="text-gray-600">15 de Junho de 2025</p>
+                </div>
 
-    <script src="script/script.js"></script>
+                <!-- Redes Sociais -->
+                <div class="flex justify-center gap-6 mb-8">
+                    <a href="#" class="text-gray-600 hover-serenity transition-colors" aria-label="Instagram">
+                        <!-- Instagram Icon -->
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-600 hover-serenity transition-colors" aria-label="Facebook">
+                        <!-- Facebook Icon -->
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a href="mailto:contato@anacarlos.com" class="text-gray-600 hover-serenity transition-colors" aria-label="Email">
+                        <!-- Mail Icon -->
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Divisor -->
+                <div class="border-t border-gray-300 mb-6"></div>
+
+                <!-- Copyright -->
+                <div class="text-center text-gray-600 text-sm">
+                    <p>© 2026 Dayane & Tamiris. Feito com muito amor.</p>
+                    <p class="mt-2 text-xs text-gray-500">
+                        TS Arte Digital - Todos os direitos reservados
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Toggle Mobile Menu
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('show');
+        }
+
+        // Smooth Scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+                // Close mobile menu if open
+                const menu = document.getElementById('mobile-menu');
+                if (menu.classList.contains('show')) {
+                    menu.classList.remove('show');
+                }
+            });
+        });
+
+        // Countdown Timer (optional - real countdown)
+        function updateCountdown() {
+            const weddingDate = new Date('2026-07-25T15:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Update the countdown elements
+            const countdownBoxes = document.querySelectorAll('.card-shadow-lg');
+            if (countdownBoxes.length >= 4) {
+                countdownBoxes[0].querySelector('.text-4xl').textContent = days;
+                countdownBoxes[1].querySelector('.text-4xl').textContent = hours;
+                countdownBoxes[2].querySelector('.text-4xl').textContent = minutes;
+                countdownBoxes[3].querySelector('.text-4xl').textContent = seconds;
+            }
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
+    </script>
 </body>
 </html>

@@ -176,7 +176,7 @@ body {
     position: relative;
     width: 100%;
     /* Substitua 'caminho-para-sua-imagem.jpg' pela imagem real do casal */
-    background-image: url('../img/fundo.png'); 
+    background-image: url('../img/fundo1.png'); 
     background-size: cover;
     background-position: center;
     height: 100vh; /* Altura do banner, ajuste conforme necessário */
