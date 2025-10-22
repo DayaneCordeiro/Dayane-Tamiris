@@ -108,3 +108,15 @@ body {
   'GRAD' 0,
   'opsz' 40
 }
+
+/* Media Query para garantir que os itens da contagem não encolham no mobile */
+@media (max-width: 768px) {
+    /* Seleciona cada item da contagem (div.bg-white) */
+    .py-16.gradient-bg .flex > div { 
+        flex-shrink: 0 !important; /* Impede que encolham */
+        min-width: 88px; /* Garante uma largura mínima para a legibilidade */
+        /* Remove o padding lateral que pode causar quebra */
+        padding-left: 11px !important;
+        padding-right: 11px !important;
+    }
+}
