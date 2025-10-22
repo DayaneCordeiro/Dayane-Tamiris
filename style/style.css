@@ -92,7 +92,7 @@ body {
 }
 
 .guide-title {
-    font-size: 18pt;
+    font-size: 18pt !important;
 }
 
 .guide-text {
