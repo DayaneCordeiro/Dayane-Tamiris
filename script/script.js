@@ -50,3 +50,38 @@ updateCountdown(); // Initial call
 const ano = document.getElementById("anoAtual");
 const data = new Date();
 ano.innerHTML = data.getFullYear();
+
+function applyTitleLayout() {
+        const titleElement = document.getElementById('main-title');
+        if (!titleElement) return;
+
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+        if (isMobile) {
+            // Se for mobile, injeta as quebras de linha desejadas
+            titleElement.innerHTML = `
+                Dayane
+                <br>
+                <span style="font-size: 0.8em;">&</span>
+                <br>
+                Tamiris
+            `;
+            // Garante centralização
+            titleElement.style.textAlign = 'center';
+            titleElement.style.whiteSpace = 'normal';
+            titleElement.style.lineHeight = '1.1';
+
+        } else {
+            // Se for desktop, mantém o layout original em uma única linha
+            titleElement.innerHTML = 'Dayane & Tamiris';
+            // Remove estilos injetados
+            titleElement.style.textAlign = '';
+            titleElement.style.whiteSpace = '';
+        }
+    }
+
+    // Executa no carregamento
+    applyTitleLayout();
+
+    // Executa em redimensionamento (para desktop/mobile)
+    window.addEventListener('resize', applyTitleLayout);
