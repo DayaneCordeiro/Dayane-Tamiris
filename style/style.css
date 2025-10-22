@@ -91,6 +91,10 @@ body {
     color: var(--serenity-blue);
 }
 
+.guide-title {
+    font-size: 15pt;
+}
+
 .guide-text {
     font-size: 10pt;
 }
