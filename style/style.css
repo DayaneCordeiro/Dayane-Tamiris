@@ -114,7 +114,8 @@ body {
     /* Seleciona cada item da contagem (div.bg-white) */
     .py-16.gradient-bg .flex > div { 
         flex-shrink: 0 !important; /* Impede que encolham */
-        min-width: 88px; /* Garante uma largura mínima para a legibilidade */
+        min-width: 80px; /* Garante uma largura mínima para a legibilidade */
+        max-height: 100px;
         /* Remove o padding lateral que pode causar quebra */
         padding-left: 11px !important;
         padding-right: 11px !important;
