@@ -22,7 +22,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Countdown Timer (optional - real countdown)
 function updateCountdown() {
     const weddingDate = new Date('2026-07-25T15:00:00').getTime();
     const now = new Date().getTime();
@@ -33,14 +32,16 @@ function updateCountdown() {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    // Update the countdown elements
-    const countdownBoxes = document.querySelectorAll('.card-shadow-lg');
-    if (countdownBoxes.length >= 4) {
-        countdownBoxes[0].querySelector('.text-4xl').textContent = days;
-        countdownBoxes[1].querySelector('.text-4xl').textContent = hours;
-        countdownBoxes[2].querySelector('.text-4xl').textContent = minutes;
-        countdownBoxes[3].querySelector('.text-4xl').textContent = seconds;
-    }
+    // Seleção por ID é muito mais precisa e não quebra se você mudar o CSS
+    const d = document.getElementById('dias');
+    const h = document.getElementById('horas');
+    const m = document.getElementById('minutos');
+    const s = document.getElementById('segundos');
+
+    if (d) d.textContent = days;
+    if (h) h.textContent = hours;
+    if (m) m.textContent = minutes;
+    if (s) s.textContent = seconds;
 }
 
 // Update countdown every second
