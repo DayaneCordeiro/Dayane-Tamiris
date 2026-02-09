@@ -76,35 +76,59 @@
             </div>
         </section>
 
+        <!-- Ações Rápidas: Presentes / Confirmar -->
+        <section class="py-4 gradient-bg">
+            <div class="container mx-auto px-2 text-center">
+                <div class="flex flex-wrap justify-center gap-3">
+                    <a href="https://sites.icasei.com.br/tamirisedayane/pages/36320166" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center justify-center gap-2 w-[45%] max-w-xs bg-[#88B0CA] hover:bg-[#6A93AD] text-white px-4 py-2 rounded-lg transition-colors text-sm md:text-base whitespace-nowrap">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7"></path>
+                            <path d="M12 12v9"></path>
+                            <path d="M7 7h10v5H7z"></path>
+                        </svg>
+                        Lista de Presentes
+                    </a>
+
+                    <a href="#confirmar" class="inline-flex items-center justify-center gap-2 w-[45%] max-w-xs bg-[#88B0CA] hover:bg-[#6A93AD] text-white px-4 py-2 rounded-lg transition-colors text-sm md:text-base whitespace-nowrap">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        Confirmar Presença
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <!-- Contador de Dias -->
         <section class="py-16 gradient-bg">
-    <div class="container mx-auto px-2 text-center"> <h2 class="text-3xl md:text-4xl mb-8 serenity-blue font-light">Contagem Regressiva</h2>
-        
-        <div class="flex justify-center gap-2 md:gap-8 flex-nowrap">
-            
-            <div class="bg-white rounded-lg card-shadow-lg p-2 md:p-6 flex-1 max-w-[100px] border-t-4 border-serenity-blue min-h-[100px] md:min-h-[120px] flex flex-col justify-center items-center">
-                <div id="dias" class="text-xl md:text-4xl serenity-blue font-light ">00</div>
-                <div class="text-[14px] md:text-base text-gray-600 mt-1">Dias</div>
-            </div>
+            <div class="container mx-auto px-2 text-center"> <h2 class="text-3xl md:text-4xl mb-8 serenity-blue font-light">Contagem Regressiva</h2>
+                
+                <div class="flex justify-center gap-2 md:gap-8 flex-nowrap">
+                    
+                    <div class="bg-white rounded-lg card-shadow-lg p-2 md:p-6 flex-1 max-w-[100px] border-t-4 border-serenity-blue min-h-[100px] md:min-h-[120px] flex flex-col justify-center items-center">
+                        <div id="dias" class="text-xl md:text-4xl serenity-blue font-light ">00</div>
+                        <div class="text-[14px] md:text-base text-gray-600 mt-1">Dias</div>
+                    </div>
 
-            <div class="bg-white rounded-lg card-shadow-lg p-2 md:p-6 flex-1 max-w-[100px] border-t-4 border-serenity-blue min-h-[100px] md:min-h-[120px] flex flex-col justify-center items-center">
-                <div id="horas" class="text-xl md:text-4xl serenity-blue font-light">00</div>
-                <div class="text-[14px] md:text-base text-gray-600 mt-1">Horas</div>
-            </div>
+                    <div class="bg-white rounded-lg card-shadow-lg p-2 md:p-6 flex-1 max-w-[100px] border-t-4 border-serenity-blue min-h-[100px] md:min-h-[120px] flex flex-col justify-center items-center">
+                        <div id="horas" class="text-xl md:text-4xl serenity-blue font-light">00</div>
+                        <div class="text-[14px] md:text-base text-gray-600 mt-1">Horas</div>
+                    </div>
 
-            <div class="bg-white rounded-lg card-shadow-lg p-2 md:p-6 flex-1 max-w-[100px] border-t-4 border-serenity-blue min-h-[100px] md:min-h-[120px] flex flex-col justify-center items-center">
-                <div id="minutos" class="text-xl md:text-4xl serenity-blue font-light">00</div>
-                <div class="text-[14px] md:text-base text-gray-600 mt-1">Minutos</div>
-            </div>
+                    <div class="bg-white rounded-lg card-shadow-lg p-2 md:p-6 flex-1 max-w-[100px] border-t-4 border-serenity-blue min-h-[100px] md:min-h-[120px] flex flex-col justify-center items-center">
+                        <div id="minutos" class="text-xl md:text-4xl serenity-blue font-light">00</div>
+                        <div class="text-[14px] md:text-base text-gray-600 mt-1">Minutos</div>
+                    </div>
 
-            <div class="bg-white rounded-lg card-shadow-lg p-2 md:p-6 flex-1 max-w-[100px] border-t-4 border-serenity-blue min-h-[100px] md:min-h-[120px] flex flex-col justify-center items-center">
-                <div id="segundos" class="text-xl md:text-4xl serenity-blue font-light">00</div>
-                <div class="text-[14px] md:text-base text-gray-600 mt-1">Segundos</div>
-            </div>
+                    <div class="bg-white rounded-lg card-shadow-lg p-2 md:p-6 flex-1 max-w-[100px] border-t-4 border-serenity-blue min-h-[100px] md:min-h-[120px] flex flex-col justify-center items-center">
+                        <div id="segundos" class="text-xl md:text-4xl serenity-blue font-light">00</div>
+                        <div class="text-[14px] md:text-base text-gray-600 mt-1">Segundos</div>
+                    </div>
 
-        </div>
-    </div>
-</section>
+                </div>
+            </div>
+        </section>
 
         <!-- Detalhes do Evento -->
         <section class="py-16">
@@ -277,43 +301,119 @@
                 
                 <div class="max-w-3xl mx-auto">
                     <div class="bg-white rounded-lg card-shadow-lg p-8 md:p-12">
-                        <p class="text-center text-gray-700 leading-relaxed mb-6">
-                            Nossa história começou há 5 anos, quando nos conhecemos em uma viagem inesquecível. 
-                            Desde então, construímos uma jornada cheia de amor, cumplicidade e sonhos compartilhados.
+                        <p class="text-justify text-gray-700 leading-relaxed mb-6">
+                            Tudo começou com um clique de curiosidade no Instagram e uma boa dose de sinceridade. 
+                            Tamiris decidiu não esperar por um post que nunca vinha e tomou a iniciativa: avisou à 
+                            Dayane que, já que ela não postava nada, o jeito era chamar logo para conversar. O que 
+                            começou como um papo despretensioso tornou-se diário e, em apenas uma semana, o primeiro 
+                            encontro selou um destino do qual elas nunca mais se desviaram.
                         </p>
-                        <p class="text-center text-gray-700 leading-relaxed">
-                            Agora, estamos prontos para dar o próximo passo juntos e queremos compartilhar 
-                            esse momento especial com você, que faz parte da nossa história!
+
+                        <p class="text-justify text-gray-700 leading-relaxed mb-6">
+                            Com o tempo, a certeza de que haviam encontrado "a pessoa certa" se fortaleceu nos detalhes. 
+                            Para Dayane, o estalo veio ao admirar a mulher trabalhadora, honesta e altruísta que Tamiris é. 
+                            Já para Tamiris, o diferencial foi o cuidado minucioso e a segurança que Dayane lhe transmitia, 
+                            provando que juntas poderiam enfrentar qualquer desafio.
+                        </p>
+
+                        <p class="text-justify text-gray-700 leading-relaxed mb-6">
+                            O pedido de casamento aconteceu em um cenário digno de filme. Durante uma viagem à Argentina, 
+                            Dayane planejou uma surpresa nas montanhas de Bariloche. Entre o nervosismo de esconder a aliança 
+                            na mochila e as risadas pelas quedas engraçadas na neve, o pedido aconteceu no alto do Cerro Catedral. 
+                            Ali, entre montanhas e lagos, elas decidiram que queriam caminhar lado a lado para sempre.
+                        </p>
+
+                        <p class="text-justify text-gray-700 leading-relaxed mb-6">
+                            Na rotina, elas encontram felicidade nas coisas simples: amam viajar e explorar novos lugares, 
+                            mas também valorizam o aconchego de casa, dividindo o sofá para maratonar séries e desfrutar da 
+                            companhia mútua. A relação é pautada pelo companheirismo, pela confiança e pelo cuidado.
+                        </p>
+
+                        <p class="text-justify text-gray-700 leading-relaxed mb-6">
+                            No dia 25 de julho de 2026, Dayane e Tamiris celebrarão o início de uma nova fase. O desejo delas 
+                            é construir um futuro de conquistas compartilhadas e que a seriedade e o amor que as unem sejam 
+                            celebrados e respeitados por todos que fazem parte de suas vidas.
                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Galeria Preview -->
+        <!-- Galeria Preview - Carrossel -->
         <section class="py-16">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl text-center mb-12 serenity-blue font-light">Momentos Especiais</h2>
+                <h2 class="text-3xl md:text-4xl text-center mb-12 serenity-blue font-light">Nós</h2>
                 
-                <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                    <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg">
-                        <img
-                            src="https://images.unsplash.com/photo-1613067532651-7075a620c900?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWRkaW5nJTIwdmVudWUlMjBkZWNvcmF0aW9ufGVufDF8fHx8MTc2MTAxMjMwMXww&ixlib=rb-4.1.0&q=80&w=1080"
-                            alt="Decoração"
-                            class="w-full h-full object-cover image-hover"
-                        />
+                <div class="relative max-w-4xl mx-auto">
+                    <!-- Carrossel Container -->
+                    <div class="overflow-hidden rounded-lg">
+                        <div id="carousel" class="flex transition-transform duration-500 ease-in-out">
+                            <!-- Slide 1 -->
+                            <div class="min-w-full grid grid-cols-2 gap-6">
+                                <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg cursor-pointer" onclick="openModal('https://images.unsplash.com/photo-1613067532651-7075a620c900?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWRkaW5nJTIwdmVudWUlMjBkZWNvcmF0aW9ufGVufDF8fHx8MTc2MTAxMjMwMXww&ixlib=rb-4.1.0&q=80&w=1080')">
+                                    <img src="https://images.unsplash.com/photo-1613067532651-7075a620c900?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWRkaW5nJTIwdmVudWUlMjBkZWNvcmF0aW9ufGVufDF8fHx8MTc2MTAxMjMwMXww&ixlib=rb-4.1.0&q=80&w=1080" alt="Decoração 1" class="w-full h-full object-cover image-hover" />
+                                </div>
+                                <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg cursor-pointer" onclick="openModal('https://images.unsplash.com/photo-1611242890224-2bb501cc042f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyb21hbnRpYyUyMGZsb3dlcnMlMjBibHVlfGVufDF8fHx8MTc2MTA1Mjg4OHww&ixlib=rb-4.1.0&q=80&w=1080')">
+                                    <img src="https://images.unsplash.com/photo-1611242890224-2bb501cc042f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyb21hbnRpYyUyMGZsb3dlcnMlMjBibHVlfGVufDF8fHx8MTc2MTA1Mjg4OHww&ixlib=rb-4.1.0&q=80&w=1080" alt="Flores 1" class="w-full h-full object-cover image-hover" />
+                                </div>
+                            </div>
+                            
+                            <!-- Slide 2 -->
+                            <div class="min-w-full grid grid-cols-2 gap-6">
+                                <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg cursor-pointer" onclick="openModal('https://images.unsplash.com/photo-1519741497674-611481863552?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080')">
+                                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Casal 1" class="w-full h-full object-cover image-hover" />
+                                </div>
+                                <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg cursor-pointer" onclick="openModal('https://images.unsplash.com/photo-1511632765486-a01980e01a18?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080')">
+                                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Anel 1" class="w-full h-full object-cover image-hover" />
+                                </div>
+                            </div>
+
+                            <!-- Slide 3 -->
+                            <div class="min-w-full grid grid-cols-2 gap-6">
+                                <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg cursor-pointer" onclick="openModal('https://images.unsplash.com/photo-1544078751-58fee2d8a03b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080')">
+                                    <img src="https://images.unsplash.com/photo-1544078751-58fee2d8a03b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Buquê 1" class="w-full h-full object-cover image-hover" />
+                                </div>
+                                <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg cursor-pointer" onclick="openModal('https://images.unsplash.com/photo-1519741497674-611481863552?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080')">
+                                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Casal 2" class="w-full h-full object-cover image-hover" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg">
-                        <img
-                            src="https://images.unsplash.com/photo-1611242890224-2bb501cc042f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyb21hbnRpYyUyMGZsb3dlcnMlMjBibHVlfGVufDF8fHx8MTc2MTA1Mjg4OHww&ixlib=rb-4.1.0&q=80&w=1080"
-                            alt="Flores"
-                            class="w-full h-full object-cover image-hover"
-                        />
+
+                    <!-- Botões de Navegação -->
+                    <button onclick="prevSlide()" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-14 md:-translate-x-16 bg-[#88B0CA] hover:bg-[#6A93AD] text-white p-3 rounded-full transition-colors z-10">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <button onclick="nextSlide()" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-14 md:translate-x-16 bg-[#88B0CA] hover:bg-[#6A93AD] text-white p-3 rounded-full transition-colors z-10">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+
+                    <!-- Indicadores -->
+                    <div class="flex justify-center gap-2 mt-6">
+                        <button onclick="goToSlide(0)" class="w-3 h-3 rounded-full bg-[#88B0CA] transition-all" id="dot-0"></button>
+                        <button onclick="goToSlide(1)" class="w-3 h-3 rounded-full bg-gray-300 transition-all" id="dot-1"></button>
+                        <button onclick="goToSlide(2)" class="w-3 h-3 rounded-full bg-gray-300 transition-all" id="dot-2"></button>
                     </div>
                 </div>
             </div>
         </section>
     </main>
+
+    <!-- Modal para Galeria -->
+    <div id="imageModal" class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4" onclick="closeModal(event)">
+        <div class="relative max-w-4xl w-full max-h-[90vh]" onclick="event.stopPropagation()">
+            <button onclick="closeModal()" class="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <img id="modalImage" src="" alt="Galeria" class="w-full h-full object-contain rounded-lg" />
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-gradient-to-b from-white to-gray-50 border-t border-gray-200 py-12">
@@ -372,5 +472,78 @@
 
     <!-- JavaScript -->
     <script src="script/script.js"></script>
+    
+    <script>
+        let currentSlide = 0;
+        const totalSlides = 3;
+        let autoPlayInterval;
+
+        function showSlide(n) {
+            const carousel = document.getElementById('carousel');
+            carousel.style.transform = `translateX(-${n * 100}%)`;
+            
+            // Atualizar indicadores
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.getElementById(`dot-${i}`);
+                dot.classList.toggle('bg-[#88B0CA]', i === n);
+                dot.classList.toggle('bg-gray-300', i !== n);
+            }
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+            resetAutoPlay();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+            resetAutoPlay();
+        }
+
+        function goToSlide(n) {
+            currentSlide = n;
+            showSlide(currentSlide);
+            resetAutoPlay();
+        }
+
+        function autoPlay() {
+            autoPlayInterval = setInterval(nextSlide, 5000); // Muda a cada 5 segundos
+        }
+
+        function resetAutoPlay() {
+            clearInterval(autoPlayInterval);
+            autoPlay();
+        }
+
+        // Modal functions
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            modalImage.src = imageSrc;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(event) {
+            // Se clicou fora da imagem ou no botão X
+            if (event === undefined || event.target.id === 'imageModal') {
+                const modal = document.getElementById('imageModal');
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Fechar modal com tecla Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Iniciar auto-play quando a página carrega
+        window.addEventListener('load', autoPlay);
+    </script>
 </body>
 </html>
