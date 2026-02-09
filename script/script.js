@@ -165,36 +165,4 @@ function applyTitleLayout() {
         showSlide(0);
         autoPlay();
     });
-
-    // --- Background music autoplay with user-interaction fallback ---
-    (function() {
-        const bg = document.getElementById('bgMusic');
-        if (!bg) return;
-        // Set a comfortable default volume
-        try { bg.volume = 0.65; } catch (e) {}
-
-        // Try to play immediately; if blocked, play on first user interaction
-        const tryPlay = () => {
-            const playPromise = bg.play();
-            if (playPromise !== undefined) {
-                playPromise.catch(() => {
-                    // If autoplay blocked, wait for user gesture
-                });
-            }
-        };
-
-        // Attempt immediate play
-        tryPlay();
-
-        // Fallback: play on first user gesture (click, touchstart, keydown)
-        const onUserGesture = () => {
-            bg.play().catch(() => {});
-            document.removeEventListener('click', onUserGesture);
-            document.removeEventListener('touchstart', onUserGesture);
-            document.removeEventListener('keydown', onUserGesture);
-        };
-
-        document.addEventListener('click', onUserGesture, { once: true });
-        document.addEventListener('touchstart', onUserGesture, { once: true });
-        document.addEventListener('keydown', onUserGesture, { once: true });
-    })();
+    
