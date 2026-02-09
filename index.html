@@ -294,6 +294,80 @@
             </div>
         </section>
 
+        <!-- Galeria de Fotos - Nós -->
+        <section class="py-16">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl text-center mb-12 serenity-blue font-light">Nós</h2>
+                
+                <div class="relative max-w-4xl mx-auto">
+                    <!-- Carrossel Container -->
+                    <div class="overflow-hidden rounded-lg">
+                        <div id="carousel" class="flex transition-transform duration-500 ease-in-out">
+                            <!-- Slide 1 -->
+                            <div class="min-w-full grid grid-cols-2 gap-6">
+                                <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg cursor-pointer" onclick="openModal('img-carrossel/IMG_9619.jpg')">
+                                    <img src="img-carrossel/IMG_9619.jpg" alt="Foto 1" class="w-full h-full object-cover image-hover" />
+                                </div>
+                                <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg cursor-pointer" onclick="openModal('img-carrossel/IMG_9605.jpg')">
+                                    <img src="img-carrossel/IMG_9605.jpg" alt="Foto 2" class="w-full h-full object-cover image-hover" />
+                                </div>
+                            </div>
+                            
+                            <!-- Slide 2 -->
+                            <div class="min-w-full grid grid-cols-2 gap-6">
+                                <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg cursor-pointer" onclick="openModal('img-carrossel/IMG_0015.jpg')">
+                                    <img src="img-carrossel/IMG_0015.jpg" alt="Foto 3" class="w-full h-full object-cover image-hover" />
+                                </div>
+                                <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg cursor-pointer" onclick="openModal('img-carrossel/fundo-neve.jpeg')">
+                                    <img src="img-carrossel/fundo-neve.jpeg" alt="Foto 4" class="w-full h-full object-cover image-hover" />
+                                </div>
+                            </div>
+
+                            <!-- Slide 3 -->
+                            <div class="min-w-full grid grid-cols-2 gap-6">
+                                <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg cursor-pointer" onclick="openModal('img-carrossel/foto.jpeg')">
+                                    <img src="img-carrossel/foto.jpeg" alt="Foto 5" class="w-full h-full object-cover image-hover" />
+                                </div>
+                                <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg cursor-pointer" onclick="openModal('img-carrossel/01E4DDD2-EAB4-41C6-9C4C-28EBA6993CBA.jpeg')">
+                                    <img src="img-carrossel/1.jpeg" alt="Foto 6" class="w-full h-full object-cover image-hover" />
+                                </div>
+                            </div>
+
+                            <!-- Slide 4 -->
+                            <div class="min-w-full grid grid-cols-2 gap-6">
+                                <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg cursor-pointer" onclick="openModal('img-carrossel/foto.jpeg')">
+                                    <img src="img-carrossel/2.jpeg" alt="Foto 5" class="w-full h-full object-cover image-hover" />
+                                </div>
+                                <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg cursor-pointer" onclick="openModal('img-carrossel/01E4DDD2-EAB4-41C6-9C4C-28EBA6993CBA.jpeg')">
+                                    <img src="img-carrossel/3.jpeg" alt="Foto 6" class="w-full h-full object-cover image-hover" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botões de Navegação -->
+                    <button onclick="prevSlide()" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-14 md:-translate-x-16 bg-[#88B0CA] hover:bg-[#6A93AD] text-white p-3 rounded-full transition-colors z-10">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <button onclick="nextSlide()" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-14 md:translate-x-16 bg-[#88B0CA] hover:bg-[#6A93AD] text-white p-3 rounded-full transition-colors z-10">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+
+                    <!-- Indicadores -->
+                    <div class="flex justify-center gap-2 mt-6">
+                        <button onclick="goToSlide(0)" class="w-3 h-3 rounded-full bg-[#88B0CA] transition-all" id="dot-0"></button>
+                        <button onclick="goToSlide(1)" class="w-3 h-3 rounded-full bg-gray-300 transition-all" id="dot-1"></button>
+                        <button onclick="goToSlide(2)" class="w-3 h-3 rounded-full bg-gray-300 transition-all" id="dot-2"></button>
+                        <button onclick="goToSlide(3)" class="w-3 h-3 rounded-full bg-gray-300 transition-all" id="dot-3"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Nossa História -->
         <section class="py-16 gradient-bg-reverse">
             <div class="container mx-auto px-4">
@@ -339,7 +413,7 @@
             </div>
         </section>
 
-        <!-- Galeria Preview - Carrossel -->
+        <!-- Galeria de Fotos - Nós -->
         <section class="py-16">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl md:text-4xl text-center mb-12 serenity-blue font-light">Nós</h2>
@@ -350,31 +424,41 @@
                         <div id="carousel" class="flex transition-transform duration-500 ease-in-out">
                             <!-- Slide 1 -->
                             <div class="min-w-full grid grid-cols-2 gap-6">
-                                <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg cursor-pointer" onclick="openModal('https://images.unsplash.com/photo-1613067532651-7075a620c900?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWRkaW5nJTIwdmVudWUlMjBkZWNvcmF0aW9ufGVufDF8fHx8MTc2MTAxMjMwMXww&ixlib=rb-4.1.0&q=80&w=1080')">
-                                    <img src="https://images.unsplash.com/photo-1613067532651-7075a620c900?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWRkaW5nJTIwdmVudWUlMjBkZWNvcmF0aW9ufGVufDF8fHx8MTc2MTAxMjMwMXww&ixlib=rb-4.1.0&q=80&w=1080" alt="Decoração 1" class="w-full h-full object-cover image-hover" />
+                                <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg cursor-pointer" onclick="openModal('img-carrossel/IMG_9619.jpg')">
+                                    <img src="img-carrossel/IMG_9619.jpg" alt="Foto 1" class="w-full h-full object-cover image-hover" />
                                 </div>
-                                <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg cursor-pointer" onclick="openModal('https://images.unsplash.com/photo-1611242890224-2bb501cc042f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyb21hbnRpYyUyMGZsb3dlcnMlMjBibHVlfGVufDF8fHx8MTc2MTA1Mjg4OHww&ixlib=rb-4.1.0&q=80&w=1080')">
-                                    <img src="https://images.unsplash.com/photo-1611242890224-2bb501cc042f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyb21hbnRpYyUyMGZsb3dlcnMlMjBibHVlfGVufDF8fHx8MTc2MTA1Mjg4OHww&ixlib=rb-4.1.0&q=80&w=1080" alt="Flores 1" class="w-full h-full object-cover image-hover" />
+                                <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg cursor-pointer" onclick="openModal('img-carrossel/IMG_9605.jpg')">
+                                    <img src="img-carrossel/IMG_9605.jpg" alt="Foto 2" class="w-full h-full object-cover image-hover" />
                                 </div>
                             </div>
                             
                             <!-- Slide 2 -->
                             <div class="min-w-full grid grid-cols-2 gap-6">
-                                <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg cursor-pointer" onclick="openModal('https://images.unsplash.com/photo-1519741497674-611481863552?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080')">
-                                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Casal 1" class="w-full h-full object-cover image-hover" />
+                                <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg cursor-pointer" onclick="openModal('img-carrossel/IMG_0015.jpg')">
+                                    <img src="img-carrossel/IMG_0015.jpg" alt="Foto 3" class="w-full h-full object-cover image-hover" />
                                 </div>
-                                <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg cursor-pointer" onclick="openModal('https://images.unsplash.com/photo-1511632765486-a01980e01a18?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080')">
-                                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Anel 1" class="w-full h-full object-cover image-hover" />
+                                <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg cursor-pointer" onclick="openModal('img-carrossel/fundo-neve.jpeg')">
+                                    <img src="img-carrossel/fundo-neve.jpeg" alt="Foto 4" class="w-full h-full object-cover image-hover" />
                                 </div>
                             </div>
 
                             <!-- Slide 3 -->
                             <div class="min-w-full grid grid-cols-2 gap-6">
-                                <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg cursor-pointer" onclick="openModal('https://images.unsplash.com/photo-1544078751-58fee2d8a03b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080')">
-                                    <img src="https://images.unsplash.com/photo-1544078751-58fee2d8a03b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Buquê 1" class="w-full h-full object-cover image-hover" />
+                                <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg cursor-pointer" onclick="openModal('img-carrossel/foto.jpeg')">
+                                    <img src="img-carrossel/foto.jpeg" alt="Foto 5" class="w-full h-full object-cover image-hover" />
                                 </div>
-                                <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg cursor-pointer" onclick="openModal('https://images.unsplash.com/photo-1519741497674-611481863552?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080')">
-                                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Casal 2" class="w-full h-full object-cover image-hover" />
+                                <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg cursor-pointer" onclick="openModal('img-carrossel/1.jpeg')">
+                                    <img src="img-carrossel/1.jpeg" alt="Foto 6" class="w-full h-full object-cover image-hover" />
+                                </div>
+                            </div>
+
+                            <!-- Slide 4 -->
+                            <div class="min-w-full grid grid-cols-2 gap-6">
+                                <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg cursor-pointer" onclick="openModal('img-carrossel/2.jpeg')">
+                                    <img src="img-carrossel/2.jpeg" alt="Foto 7" class="w-full h-full object-cover image-hover" />
+                                </div>
+                                <div class="relative h-64 rounded-lg overflow-hidden card-shadow-lg cursor-pointer" onclick="openModal('img-carrossel/3.jpeg')">
+                                    <img src="img-carrossel/3.jpeg" alt="Foto 8" class="w-full h-full object-cover image-hover" />
                                 </div>
                             </div>
                         </div>
@@ -472,78 +556,5 @@
 
     <!-- JavaScript -->
     <script src="script/script.js"></script>
-    
-    <script>
-        let currentSlide = 0;
-        const totalSlides = 3;
-        let autoPlayInterval;
-
-        function showSlide(n) {
-            const carousel = document.getElementById('carousel');
-            carousel.style.transform = `translateX(-${n * 100}%)`;
-            
-            // Atualizar indicadores
-            for (let i = 0; i < totalSlides; i++) {
-                const dot = document.getElementById(`dot-${i}`);
-                dot.classList.toggle('bg-[#88B0CA]', i === n);
-                dot.classList.toggle('bg-gray-300', i !== n);
-            }
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            showSlide(currentSlide);
-            resetAutoPlay();
-        }
-
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-            showSlide(currentSlide);
-            resetAutoPlay();
-        }
-
-        function goToSlide(n) {
-            currentSlide = n;
-            showSlide(currentSlide);
-            resetAutoPlay();
-        }
-
-        function autoPlay() {
-            autoPlayInterval = setInterval(nextSlide, 5000); // Muda a cada 5 segundos
-        }
-
-        function resetAutoPlay() {
-            clearInterval(autoPlayInterval);
-            autoPlay();
-        }
-
-        // Modal functions
-        function openModal(imageSrc) {
-            const modal = document.getElementById('imageModal');
-            const modalImage = document.getElementById('modalImage');
-            modalImage.src = imageSrc;
-            modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal(event) {
-            // Se clicou fora da imagem ou no botão X
-            if (event === undefined || event.target.id === 'imageModal') {
-                const modal = document.getElementById('imageModal');
-                modal.classList.add('hidden');
-                document.body.style.overflow = 'auto';
-            }
-        }
-
-        // Fechar modal com tecla Escape
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeModal();
-            }
-        });
-
-        // Iniciar auto-play quando a página carrega
-        window.addEventListener('load', autoPlay);
-    </script>
 </body>
 </html>

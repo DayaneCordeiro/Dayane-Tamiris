@@ -86,3 +86,82 @@ function applyTitleLayout() {
 
     // Executa em redimensionamento (para desktop/mobile)
     window.addEventListener('resize', applyTitleLayout);
+
+    // --- Carousel & Modal (slides using images from img-carrossel) ---
+    let currentSlide = 0;
+    const totalSlides = 4;
+    let autoPlayInterval;
+
+    function showSlide(n) {
+        const carousel = document.getElementById('carousel');
+        if (!carousel) return;
+        carousel.style.transform = `translateX(-${n * 100}%)`;
+
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.getElementById(`dot-${i}`);
+            if (!dot) continue;
+            if (i === n) {
+                dot.classList.add('bg-[#88B0CA]');
+                dot.classList.remove('bg-gray-300');
+            } else {
+                dot.classList.remove('bg-[#88B0CA]');
+                dot.classList.add('bg-gray-300');
+            }
+        }
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        showSlide(currentSlide);
+        resetAutoPlay();
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        showSlide(currentSlide);
+        resetAutoPlay();
+    }
+
+    function goToSlide(n) {
+        currentSlide = n;
+        showSlide(currentSlide);
+        resetAutoPlay();
+    }
+
+    function autoPlay() {
+        autoPlayInterval = setInterval(nextSlide, 5000);
+    }
+
+    function resetAutoPlay() {
+        clearInterval(autoPlayInterval);
+        autoPlay();
+    }
+
+    function openModal(imageSrc) {
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        if (!modal || !modalImage) return;
+        modalImage.src = imageSrc;
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(event) {
+        if (event === undefined || (event && event.target && event.target.id === 'imageModal')) {
+            const modal = document.getElementById('imageModal');
+            if (!modal) return;
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+    }
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeModal();
+        }
+    });
+
+    window.addEventListener('load', function() {
+        showSlide(0);
+        autoPlay();
+    });
