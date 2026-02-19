@@ -29,14 +29,8 @@
                     <svg class="w-6 h-6 serenity-blue" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                     </svg>
-                    <span class="text-xl serenity-blue">Dayane & Tamiris</span>
+                    <a class="text-xl serenity-blue" href="index.html">Dayane & Tamiris</a>
                 </div>
-                
-                <nav class="hidden md:flex gap-8">
-                    <a href="index.html" class="serenity-blue transition-colors">Início</a>
-                    <a href="https://sites.icasei.com.br/tamirisedayane/pages/36320166" class="text-gray-600 hover-serenity transition-colors">Presentes</a>
-                    <a href="#confirmar" class="text-gray-600 hover-serenity transition-colors">Confirmar Presença</a>
-                </nav>
 
                 <div class="md:hidden">
                     <button onclick="toggleMenu()" class="serenity-blue">
@@ -46,40 +40,100 @@
                     </button>
                 </div>
             </div>
-
-            <div id="mobile-menu" class="md:hidden mt-4 pb-2">
-                <a href="index.html" class="block w-full text-left py-2 px-4 rounded serenity-blue bg-serenity-blue-light">Início</a>
-                <a href="https://sites.icasei.com.br/tamirisedayane/pages/36320166" class="block w-full text-left py-2 px-4 rounded text-gray-600 hover:bg-gray-50">Presentes</a>
-                <a href="#confirmar" class="block w-full text-left py-2 px-4 rounded text-gray-600 hover:bg-gray-50">Confirmar Presença</a>
-            </div>
         </div>
     </header>
 
     <!-- Main Content -->
     <main>
-        <section class="py-16 gradient-bg">
-            <div class="container mx-auto px-2 text-center">
-                <h2 class="text-3xl md:text-4xl mb-8 serenity-blue font-light">Clique para acessar a lista de presentes:</h2>
+        <section class="pt-16 pb-6 gradient-bg">
+        <div class="container mx-auto px-4 text-center">
 
-                <a href="https://sites.icasei.com.br/tamirisedayane/pages/36320166" target="_blank" rel="noopener noreferrer"
-                            class="inline-flex items-center justify-center gap-2 w-[45%] max-w-xs bg-[#88B0CA] hover:bg-[#6A93AD] text-white px-2 py-4 rounded-lg transition-colors text-sm md:text-base whitespace-nowrap">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7"></path>
-                        <path d="M12 12v9"></path>
-                        <path d="M7 7h10v5H7z"></path>
-                    </svg>
+            <!-- Título -->
+            <div class="text-center mb-12">
+                <span class="material-symbols-outlined text-4xl serenity-blue block mb-3">
+                    featured_seasonal_and_gifts
+                </span>
+
+                <h2 class="text-3xl serenity-blue font-light leading-snug">
+                    Escolha como deseja nos presentear
+                </h2>
+            </div>
+
+            <!-- CARD LISTA -->
+            <div class="bg-white rounded-xl card-shadow p-6 mb-8 max-w-md mx-auto">
+                <span class="material-symbols-outlined text-3xl serenity-blue mb-2 block">
+                    shopping_bag
+                </span>
+
+                <h3 class="text-xl serenity-blue font-medium mb-2">
                     Lista de Presentes
-                </a>
+                </h3>
 
-                <br><br><br>
-                <img src="img/qrcode-pix.png" alt="QR Code PIX" class="mx-auto block mt-4">
-                <p class="mt-4 text-lg serenity-blue">Escaneie o qr code ou copie a chave pix</p>
-                <div class="flex justify-center items-center mt-2">
-                    <input type="text" id="pix-key" value="3e89948e-6490-4df7-a32c-8ff5c7e8bd9e" readonly class="px-4 py-2 border border-gray-300 rounded text-center flex-1 max-w-md">
-                    <button id="copy-btn" onclick="copyPixKey()" class="ml-2 px-3 py-2 bg-[#88B0CA] hover:bg-[#6A93AD] text-white rounded"><span class="material-symbols-outlined">content_copy</span></button>
+                <p class="text-gray-600 mb-6 text-sm">
+                    Escolha um presente em nossa lista online.
+                </p>
+
+                <a href="https://sites.icasei.com.br/tamirisedayane/pages/36320166" 
+                target="_blank" 
+                class="inline-flex items-center justify-center gap-2 w-full bg-[#88B0CA] hover:bg-[#6A93AD] text-white px-4 py-3 rounded-lg transition-colors">
+                    Acessar Lista
+                </a>
+            </div>
+
+            <!-- CARD PIX -->
+            <div class="bg-white rounded-xl card-shadow p-6 max-w-md mx-auto">
+
+                <span class="material-symbols-outlined text-3xl serenity-blue mb-2 block">
+                    qr_code
+                </span>
+
+                <h3 class="text-xl serenity-blue font-medium mb-2">
+                    Presente via Pix
+                </h3>
+
+                <p class="text-gray-600 mb-4 text-sm">
+                    Se preferir, envie um presente em valor via Pix.
+                </p>
+
+                <img src="img/qrcode-pix.png" alt="QR Code PIX" class="mx-auto mb-4 w-40">
+
+                <div class="flex justify-center items-center">
+                    <input type="text"
+                        id="pix-key"
+                        value="3e89948e-6490-4df7-a32c-8ff5c7e8bd9e"
+                        readonly
+                        class="h-11 px-4 border border-gray-300 rounded text-center flex-1 text-sm">
+
+                        
+                    <button id="copy-btn"
+                            onclick="copyPixKey()"
+                            class="ml-2 w-11 h-11 flex items-center justify-center bg-[#88B0CA] hover:bg-[#6A93AD] text-white rounded transition-all duration-200">
+                        <span class="material-symbols-outlined text-lg">
+                            content_copy
+                        </span>
+                    </button>
+
                 </div>
             </div>
-        </section>
+
+        </div>
+    </section>
+
+    <!-- Botão Voltar para Início -->
+        <!-- Botão Voltar -->
+         <div class="mt-8 mb-6 text-center">
+            <a href="index.html"
+            class="inline-flex items-center justify-center gap-2 bg-[#88B0CA] hover:bg-[#6A93AD] text-white px-4 py-2 rounded-md transition-colors text-sm">
+            
+                <span class="material-symbols-outlined text-base">
+                    arrow_back
+                </span>
+
+                Voltar ao início
+            </a>
+        </div>
+
+
 
     <!-- Footer -->
     <footer class="bg-gradient-to-b from-white to-gray-50 border-t border-gray-200 py-12">
