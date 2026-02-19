@@ -48,6 +48,21 @@ function updateCountdown() {
 setInterval(updateCountdown, 1000);
 updateCountdown(); // Initial call
 
+// Copy PIX key to clipboard
+function copyPixKey() {
+    const input = document.getElementById('pix-key');
+    navigator.clipboard.writeText(input.value).then(() => {
+        const button = document.getElementById('copy-btn');
+        const originalHTML = button.innerHTML;
+        button.innerHTML = '<span class="material-symbols-outlined">check</span>';
+        setTimeout(() => {
+            button.innerHTML = originalHTML;
+        }, 2000);
+    }).catch(err => {
+        console.error('Erro ao copiar: ', err);
+    });
+}
+
 const ano = document.getElementById("anoAtual");
 const data = new Date();
 ano.innerHTML = data.getFullYear();

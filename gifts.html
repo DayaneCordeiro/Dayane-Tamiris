@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dayane & Tamiris</title>
+
+    <!-- Font Mea Culpa -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mea+Culpa&display=swap" rel="stylesheet">
+    <!-- End font -->
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+
+    <!-- icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2 cursor-pointer">
+                    <!-- Heart Icon -->
+                    <svg class="w-6 h-6 serenity-blue" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    <span class="text-xl serenity-blue">Dayane & Tamiris</span>
+                </div>
+                
+                <nav class="hidden md:flex gap-8">
+                    <a href="index.html" class="serenity-blue transition-colors">Início</a>
+                    <a href="https://sites.icasei.com.br/tamirisedayane/pages/36320166" class="text-gray-600 hover-serenity transition-colors">Presentes</a>
+                    <a href="#confirmar" class="text-gray-600 hover-serenity transition-colors">Confirmar Presença</a>
+                </nav>
+
+                <div class="md:hidden">
+                    <button onclick="toggleMenu()" class="serenity-blue">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="md:hidden mt-4 pb-2">
+                <a href="index.html" class="block w-full text-left py-2 px-4 rounded serenity-blue bg-serenity-blue-light">Início</a>
+                <a href="https://sites.icasei.com.br/tamirisedayane/pages/36320166" class="block w-full text-left py-2 px-4 rounded text-gray-600 hover:bg-gray-50">Presentes</a>
+                <a href="#confirmar" class="block w-full text-left py-2 px-4 rounded text-gray-600 hover:bg-gray-50">Confirmar Presença</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="py-16 gradient-bg">
+            <div class="container mx-auto px-2 text-center">
+                <h2 class="text-3xl md:text-4xl mb-8 serenity-blue font-light">Clique para acessar a lista de presentes:</h2>
+
+                <a href="https://sites.icasei.com.br/tamirisedayane/pages/36320166" target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center justify-center gap-2 w-[45%] max-w-xs bg-[#88B0CA] hover:bg-[#6A93AD] text-white px-2 py-4 rounded-lg transition-colors text-sm md:text-base whitespace-nowrap">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7"></path>
+                        <path d="M12 12v9"></path>
+                        <path d="M7 7h10v5H7z"></path>
+                    </svg>
+                    Lista de Presentes
+                </a>
+
+                <br><br><br>
+                <img src="img/qrcode-pix.png" alt="QR Code PIX" class="mx-auto block mt-4">
+                <p class="mt-4 text-lg serenity-blue">Escaneie o qr code ou copie a chave pix</p>
+                <div class="flex justify-center items-center mt-2">
+                    <input type="text" id="pix-key" value="3e89948e-6490-4df7-a32c-8ff5c7e8bd9e" readonly class="px-4 py-2 border border-gray-300 rounded text-center flex-1 max-w-md">
+                    <button id="copy-btn" onclick="copyPixKey()" class="ml-2 px-3 py-2 bg-[#88B0CA] hover:bg-[#6A93AD] text-white rounded"><span class="material-symbols-outlined">content_copy</span></button>
+                </div>
+            </div>
+        </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-b from-white to-gray-50 border-t border-gray-200 py-12">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <!-- Logo e Nome -->
+                <div class="text-center mb-8">
+                    <div class="flex justify-center items-center gap-2 mb-4">
+                        <!-- Heart Icon -->
+                        <svg class="w-8 h-8 serenity-blue" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                        <span class="text-2xl serenity-blue">Dayane & Tamiris</span>
+                    </div>
+                    <p class="text-gray-600">25 de Julho de 2026</p>
+                </div>
+
+                <!-- Redes Sociais -->
+                <div class="flex justify-center gap-6 mb-8">
+                    <a href="#" class="text-gray-600 hover-serenity transition-colors" aria-label="Instagram">
+                        <!-- Instagram Icon -->
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-600 hover-serenity transition-colors" aria-label="Facebook">
+                        <!-- Facebook Icon -->
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a href="mailto:contato@anacarlos.com" class="text-gray-600 hover-serenity transition-colors" aria-label="Email">
+                        <!-- Mail Icon -->
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Divisor -->
+                <div class="border-t border-gray-300 mb-6"></div>
+
+                <!-- Copyright -->
+                <div class="text-center text-gray-600 text-sm">
+                    <p>© <span id="anoAtual"></span> Dayane & Tamiris. Feito com muito amor.</p>
+                    <p class="mt-2 text-xs text-gray-500">
+                        TS Arte Digital & DC Engenharia de Software <br> Todos os direitos reservados.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script/script.js"></script>
+</body>
+</html>
