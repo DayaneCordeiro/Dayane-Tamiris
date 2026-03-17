@@ -15,25 +15,21 @@
 // });
 
 window.addEventListener('load', function() {
-    // Substitua pela sua URL do Google Apps Script
     const scriptURL = "https://script.google.com/macros/s/AKfycbxT1E0iVJbxil3IWyVRWjON_m63a74_TYXhn8Vd_wtDrAQVysojZEjDV2cI2uuu3EZn5Q/exec";
 
-    // Função para buscar localização com timeout e tratamento de erro
-    async function pegarLocalizacao() {
-        try {
-            // Forçamos o HTTPS na chamada da API
-            const response = await fetch('https://ipapi.co/json/', { timeout: 5000 });
-            if (!response.ok) throw new Error();
-            const loc = await response.json();
-            return loc.city && loc.region_code ? `${loc.city}, ${loc.region_code}` : "Não identificado";
-        } catch (err) {
-            return "Localização Oculta/Erro";
-        }
-    }
+    // Usando o ip-api.com (mais estável para monitoramento sem cadastro)
+    fetch('https://ip-api.com/json/')
+        .then(response => response.json())
+        .then(loc => {
+            // No ip-api, os campos são 'city' e 'region'
+            const localizacao = (loc.city && loc.region) ? `${loc.city}, ${loc.region}` : "Local não identificado";
+            enviarDados(localizacao);
+        })
+        .catch(() => {
+            enviarDados("Erro na busca de IP");
+        });
 
-    async function iniciarMonitoramento() {
-        const local = await pegarLocalizacao();
-        
+    function enviarDados(local) {
         const dados = {
             page: window.location.pathname.split('/').filter(Boolean).pop() || "Home",
             device: detectarDispositivo(),
@@ -41,7 +37,6 @@ window.addEventListener('load', function() {
             ref: document.referrer ? new URL(document.referrer).hostname : "Direto"
         };
 
-        // Envia para o Google Apps Script
         fetch(`${scriptURL}?page=${dados.page}&device=${dados.device}&local=${dados.local}&ref=${dados.ref}`, {
             method: 'GET',
             mode: 'no-cors'
@@ -56,8 +51,6 @@ window.addEventListener('load', function() {
         if (/Macintosh/i.test(ua)) return "Mac";
         return "Outro";
     }
-
-    iniciarMonitoramento();
 });
 
 // Toggle Mobile Menu
