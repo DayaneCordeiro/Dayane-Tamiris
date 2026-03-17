@@ -15,52 +15,50 @@
 // });
 
 window.addEventListener('load', function() {
+    // Substitua pela sua URL do Google Apps Script
     const scriptURL = "https://script.google.com/macros/s/AKfycbxT1E0iVJbxil3IWyVRWjON_m63a74_TYXhn8Vd_wtDrAQVysojZEjDV2cI2uuu3EZn5Q/exec";
 
-    // 1. Primeiro buscamos a localização pelo IP
-    fetch('https://ipapi.co/json/')
-        .then(response => response.json())
-        .then(loc => {
-            // Montamos a string de localização (Ex: "Contagem, MG")
-            const localizacao = `${loc.city}, ${loc.region_code}`;
-            
-            // 2. Agora enviamos tudo para a sua planilha
-            const dados = {
-                page: window.location.pathname,
-                device: detectarDispositivo(),
-                local: localizacao,
-                ref: document.referrer || "Direto"
-            };
+    // Função para buscar localização com timeout e tratamento de erro
+    async function pegarLocalizacao() {
+        try {
+            // Forçamos o HTTPS na chamada da API
+            const response = await fetch('https://ipapi.co/json/', { timeout: 5000 });
+            if (!response.ok) throw new Error();
+            const loc = await response.json();
+            return loc.city && loc.region_code ? `${loc.city}, ${loc.region_code}` : "Não identificado";
+        } catch (err) {
+            return "Localização Oculta/Erro";
+        }
+    }
 
-            enviarParaPlanilha(scriptURL, dados);
-        })
-        .catch(() => {
-            // Se falhar a busca da localização, envia sem ela para não perder o registro
-            enviarParaPlanilha(scriptURL, {
-                page: window.location.pathname,
-                device: detectarDispositivo(),
-                local: "Localização Oculta",
-                ref: document.referrer || "Direto"
-            });
+    async function iniciarMonitoramento() {
+        const local = await pegarLocalizacao();
+        
+        const dados = {
+            page: window.location.pathname.split('/').filter(Boolean).pop() || "Home",
+            device: detectarDispositivo(),
+            local: local,
+            ref: document.referrer ? new URL(document.referrer).hostname : "Direto"
+        };
+
+        // Envia para o Google Apps Script
+        fetch(`${scriptURL}?page=${dados.page}&device=${dados.device}&local=${dados.local}&ref=${dados.ref}`, {
+            method: 'GET',
+            mode: 'no-cors'
         });
+    }
+
+    function detectarDispositivo() {
+        const ua = navigator.userAgent;
+        if (/android/i.test(ua)) return "Android";
+        if (/iPhone|iPad|iPod/i.test(ua)) return "iPhone/iOS";
+        if (/Windows/i.test(ua)) return "Windows PC";
+        if (/Macintosh/i.test(ua)) return "Mac";
+        return "Outro";
+    }
+
+    iniciarMonitoramento();
 });
-
-// Função auxiliar para deixar o nome do dispositivo mais amigável
-function detectarDispositivo() {
-    const ua = navigator.userAgent;
-    if (/android/i.test(ua)) return "Android";
-    if (/iPhone|iPad|iPod/i.test(ua)) return "iOS (iPhone/iPad)";
-    if (/Windows/i.test(ua)) return "Windows PC";
-    if (/Macintosh/i.test(ua)) return "Mac";
-    return "Outro";
-}
-
-function enviarParaPlanilha(url, d) {
-    fetch(`${url}?page=${d.page}&device=${d.device}&local=${d.local}&ref=${d.ref}`, {
-        method: 'GET',
-        mode: 'no-cors'
-    });
-}
 
 // Toggle Mobile Menu
 function toggleMenu() {
