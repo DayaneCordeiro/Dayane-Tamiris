@@ -14,46 +14,30 @@
 //     });
 // });
 
-window.addEventListener('load', function() {
+window.addEventListener('load', async function() {
     const scriptURL = "https://script.google.com/macros/s/AKfycbxT1E0iVJbxil3IWyVRWjON_m63a74_TYXhn8Vd_wtDrAQVysojZEjDV2cI2uuu3EZn5Q/exec";
 
-    // Tentando um terceiro provedor (Cloudflare - super estável)
-    fetch('https://dash.cloudflare.com/api/v4/system/time') // Só para testar se o fetch funciona
-    
-    fetch('https://ipapi.co/json/')
-        .then(res => {
-            if(!res.ok) throw new Error('Erro HTTP: ' + res.status);
-            return res.json();
-        })
-        .then(loc => {
-            const localizacao = `${loc.city || 'S/C'}, ${loc.region_code || 'S/E'}`;
-            enviarParaPlanilha(localizacao);
-        })
-        .catch(err => {
-            // Se der erro, ele vai enviar o texto do erro para a planilha!
-            enviarParaPlanilha("Erro: " + err.message.slice(0, 20));
-        });
+    let localizacao = "Brasil"; // Valor padrão
 
-    function enviarParaPlanilha(local) {
-        const dados = {
-            page: window.location.pathname.split('/').filter(Boolean).pop() || "Home",
-            device: detectarDispositivo(),
-            local: local,
-            ref: document.referrer ? "Link" : "Direto"
-        };
-
-        const finalURL = `${scriptURL}?page=${dados.page}&device=${dados.device}&local=${encodeURIComponent(dados.local)}&ref=${dados.ref}`;
-        
-        fetch(finalURL, { method: 'GET', mode: 'no-cors' });
+    try {
+        // Tentamos o ip-api com um timeout de 3 segundos
+        const response = await fetch('https://ip-api.com/json/');
+        const loc = await response.json();
+        if (loc.city && loc.region) {
+            localizacao = `${loc.city}, ${loc.region}`;
+        }
+    } catch (e) {
+        localizacao = "Local Oculto";
     }
 
-    function detectarDispositivo() {
-        const ua = navigator.userAgent;
-        if (/android/i.test(ua)) return "Android";
-        if (/iPhone|iPad|iPod/i.test(ua)) return "iPhone";
-        if (/Windows/i.test(ua)) return "PC";
-        return "Outro";
-    }
+    // Só envia depois de tentar pegar a localização
+    const p = window.location.pathname.split('/').filter(Boolean).pop() || "Home";
+    const d = /Android|iPhone|iPad/i.test(navigator.userAgent) ? "iPhone" : "PC";
+    const r = document.referrer ? "Link Externo" : "Direto";
+
+    const finalURL = `${scriptURL}?page=${encodeURIComponent(p)}&device=${encodeURIComponent(d)}&local=${encodeURIComponent(localizacao)}&ref=${encodeURIComponent(r)}`;
+
+    fetch(finalURL, { method: 'GET', mode: 'no-cors' });
 });
 
 // Toggle Mobile Menu
