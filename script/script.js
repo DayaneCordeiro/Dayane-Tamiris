@@ -17,38 +17,41 @@
 window.addEventListener('load', function() {
     const scriptURL = "https://script.google.com/macros/s/AKfycbxT1E0iVJbxil3IWyVRWjON_m63a74_TYXhn8Vd_wtDrAQVysojZEjDV2cI2uuu3EZn5Q/exec";
 
-    // Usando o ip-api.com (mais estável para monitoramento sem cadastro)
-    fetch('https://ip-api.com/json/')
-        .then(response => response.json())
-        .then(loc => {
-            // No ip-api, os campos são 'city' e 'region'
-            const localizacao = (loc.city && loc.region) ? `${loc.city}, ${loc.region}` : "Local não identificado";
-            enviarDados(localizacao);
+    // Tentando um terceiro provedor (Cloudflare - super estável)
+    fetch('https://dash.cloudflare.com/api/v4/system/time') // Só para testar se o fetch funciona
+    
+    fetch('https://ipapi.co/json/')
+        .then(res => {
+            if(!res.ok) throw new Error('Erro HTTP: ' + res.status);
+            return res.json();
         })
-        .catch(() => {
-            enviarDados("Erro na busca de IP");
+        .then(loc => {
+            const localizacao = `${loc.city || 'S/C'}, ${loc.region_code || 'S/E'}`;
+            enviarParaPlanilha(localizacao);
+        })
+        .catch(err => {
+            // Se der erro, ele vai enviar o texto do erro para a planilha!
+            enviarParaPlanilha("Erro: " + err.message.slice(0, 20));
         });
 
-    function enviarDados(local) {
+    function enviarParaPlanilha(local) {
         const dados = {
             page: window.location.pathname.split('/').filter(Boolean).pop() || "Home",
             device: detectarDispositivo(),
             local: local,
-            ref: document.referrer ? new URL(document.referrer).hostname : "Direto"
+            ref: document.referrer ? "Link" : "Direto"
         };
 
-        fetch(`${scriptURL}?page=${dados.page}&device=${dados.device}&local=${dados.local}&ref=${dados.ref}`, {
-            method: 'GET',
-            mode: 'no-cors'
-        });
+        const finalURL = `${scriptURL}?page=${dados.page}&device=${dados.device}&local=${encodeURIComponent(dados.local)}&ref=${dados.ref}`;
+        
+        fetch(finalURL, { method: 'GET', mode: 'no-cors' });
     }
 
     function detectarDispositivo() {
         const ua = navigator.userAgent;
         if (/android/i.test(ua)) return "Android";
-        if (/iPhone|iPad|iPod/i.test(ua)) return "iPhone/iOS";
-        if (/Windows/i.test(ua)) return "Windows PC";
-        if (/Macintosh/i.test(ua)) return "Mac";
+        if (/iPhone|iPad|iPod/i.test(ua)) return "iPhone";
+        if (/Windows/i.test(ua)) return "PC";
         return "Outro";
     }
 });
