@@ -1,42 +1,36 @@
-// window.addEventListener('load', function() {
-//     const scriptURL = "https://script.google.com/macros/s/AKfycbxT1E0iVJbxil3IWyVRWjON_m63a74_TYXhn8Vd_wtDrAQVysojZEjDV2cI2uuu3EZn5Q/exec";
-//     const dados = {
-//         page: window.location.pathname,
-//         device: navigator.userAgent.slice(0, 50), // Pega um resumo do aparelho
-//         lang: navigator.language,
-//         ref: document.referrer || "Direto"
-//     };
-
-//     // Envia os dados para a planilha sem atrapalhar o carregamento do site
-//     fetch(`${scriptURL}?page=${dados.page}&device=${dados.device}&lang=${dados.lang}&ref=${dados.ref}`, {
-//         method: 'GET',
-//         mode: 'no-cors' // Importante para não dar erro de segurança
-//     });
-// });
-
 window.addEventListener('load', function() {
-    const scriptURL = "https://script.google.com/macros/s/AKfycbxT1E0iVJbxil3IWyVRWjON_m63a74_TYXhn8Vd_wtDrAQVysojZEjDV2cI2uuu3EZn5Q/exec";
+    // SEU NOVO LINK DE DEPLOY CORRIGIDO
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxNHb8-kBfWrLKhcNUUGqgx20BVOmY43_9K0YX_j6uN3-jSO4wHRduU9Z_T5DApgRIHWQ/exec";
 
-    // 1. Pega os dados básicos IMEDIATAMENTE
-    const p = window.location.pathname.split('/').filter(Boolean).pop() || "Home";
-    const d = /Android|iPhone|iPad/i.test(navigator.userAgent) ? "iPhone" : "PC";
-    
-    // 2. Tenta a localização de forma ultra-simples
+    // 1. Tenta buscar a localização (Cidade e Estado)
     fetch('https://ipapi.co/json/')
         .then(res => res.json())
         .then(loc => {
-            // Se funcionar, envia com a cidade
-            const local = (loc.city && loc.region) ? `${loc.city}-${loc.region}` : "Brasil-Verificado";
-            enviar(p, d, local);
+            const infoLocal = (loc.city && loc.region) ? `${loc.city}, ${loc.region}` : "Brasil";
+            enviarParaPlanilha(infoLocal);
         })
         .catch(() => {
-            // Se a API de localização falhar ou for bloqueada, envia como "Sem-GPS"
-            // Mudamos a palavra para saber que o código é o NOVO
-            enviar(p, d, "Sem-GPS");
+            // Caso a API de localização falhe, envia como "Local Oculto"
+            enviarParaPlanilha("Local Oculto");
         });
 
-    function enviar(pagina, dispositivo, local) {
-        const finalURL = `${scriptURL}?page=${encodeURIComponent(pagina)}&device=${encodeURIComponent(dispositivo)}&local=${encodeURIComponent(local)}&ref=Direto`;
+    function enviarParaPlanilha(local) {
+        // Pega o nome da página atual
+        const p = window.location.pathname.split('/').filter(Boolean).pop() || "Home";
+        
+        // Detecta o tipo de dispositivo
+        const ua = navigator.userAgent;
+        let d = "PC";
+        if (/Android/i.test(ua)) d = "Android";
+        else if (/iPhone|iPad|iPod/i.test(ua)) d = "iPhone/iOS";
+
+        // Verifica a origem do acesso
+        const r = document.referrer ? "Link Externo" : "Direto";
+
+        // Monta a URL com os parâmetros exatos do seu script do Google
+        const finalURL = `${scriptURL}?page=${encodeURIComponent(p)}&device=${encodeURIComponent(d)}&local=${encodeURIComponent(local)}&ref=${encodeURIComponent(r)}`;
+
+        // Dispara o envio (o mode no-cors evita erros de segurança no console)
         fetch(finalURL, { method: 'GET', mode: 'no-cors' });
     }
 });
