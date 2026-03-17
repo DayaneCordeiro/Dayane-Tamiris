@@ -14,30 +14,31 @@
 //     });
 // });
 
-window.addEventListener('load', async function() {
+window.addEventListener('load', function() {
     const scriptURL = "https://script.google.com/macros/s/AKfycbxT1E0iVJbxil3IWyVRWjON_m63a74_TYXhn8Vd_wtDrAQVysojZEjDV2cI2uuu3EZn5Q/exec";
 
-    let localizacao = "Brasil"; // Valor padrão
-
-    try {
-        // Tentamos o ip-api com um timeout de 3 segundos
-        const response = await fetch('https://ip-api.com/json/');
-        const loc = await response.json();
-        if (loc.city && loc.region) {
-            localizacao = `${loc.city}, ${loc.region}`;
-        }
-    } catch (e) {
-        localizacao = "Local Oculto";
-    }
-
-    // Só envia depois de tentar pegar a localização
+    // 1. Pega os dados básicos IMEDIATAMENTE
     const p = window.location.pathname.split('/').filter(Boolean).pop() || "Home";
     const d = /Android|iPhone|iPad/i.test(navigator.userAgent) ? "iPhone" : "PC";
-    const r = document.referrer ? "Link Externo" : "Direto";
+    
+    // 2. Tenta a localização de forma ultra-simples
+    fetch('https://ipapi.co/json/')
+        .then(res => res.json())
+        .then(loc => {
+            // Se funcionar, envia com a cidade
+            const local = (loc.city && loc.region) ? `${loc.city}-${loc.region}` : "Brasil-Verificado";
+            enviar(p, d, local);
+        })
+        .catch(() => {
+            // Se a API de localização falhar ou for bloqueada, envia como "Sem-GPS"
+            // Mudamos a palavra para saber que o código é o NOVO
+            enviar(p, d, "Sem-GPS");
+        });
 
-    const finalURL = `${scriptURL}?page=${encodeURIComponent(p)}&device=${encodeURIComponent(d)}&local=${encodeURIComponent(localizacao)}&ref=${encodeURIComponent(r)}`;
-
-    fetch(finalURL, { method: 'GET', mode: 'no-cors' });
+    function enviar(pagina, dispositivo, local) {
+        const finalURL = `${scriptURL}?page=${encodeURIComponent(pagina)}&device=${encodeURIComponent(dispositivo)}&local=${encodeURIComponent(local)}&ref=Direto`;
+        fetch(finalURL, { method: 'GET', mode: 'no-cors' });
+    }
 });
 
 // Toggle Mobile Menu
