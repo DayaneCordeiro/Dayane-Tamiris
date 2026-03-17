@@ -1,3 +1,67 @@
+// window.addEventListener('load', function() {
+//     const scriptURL = "https://script.google.com/macros/s/AKfycbxT1E0iVJbxil3IWyVRWjON_m63a74_TYXhn8Vd_wtDrAQVysojZEjDV2cI2uuu3EZn5Q/exec";
+//     const dados = {
+//         page: window.location.pathname,
+//         device: navigator.userAgent.slice(0, 50), // Pega um resumo do aparelho
+//         lang: navigator.language,
+//         ref: document.referrer || "Direto"
+//     };
+
+//     // Envia os dados para a planilha sem atrapalhar o carregamento do site
+//     fetch(`${scriptURL}?page=${dados.page}&device=${dados.device}&lang=${dados.lang}&ref=${dados.ref}`, {
+//         method: 'GET',
+//         mode: 'no-cors' // Importante para não dar erro de segurança
+//     });
+// });
+
+window.addEventListener('load', function() {
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxT1E0iVJbxil3IWyVRWjON_m63a74_TYXhn8Vd_wtDrAQVysojZEjDV2cI2uuu3EZn5Q/exec";
+
+    // 1. Primeiro buscamos a localização pelo IP
+    fetch('https://ipapi.co/json/')
+        .then(response => response.json())
+        .then(loc => {
+            // Montamos a string de localização (Ex: "Contagem, MG")
+            const localizacao = `${loc.city}, ${loc.region_code}`;
+            
+            // 2. Agora enviamos tudo para a sua planilha
+            const dados = {
+                page: window.location.pathname,
+                device: detectarDispositivo(),
+                local: localizacao,
+                ref: document.referrer || "Direto"
+            };
+
+            enviarParaPlanilha(scriptURL, dados);
+        })
+        .catch(() => {
+            // Se falhar a busca da localização, envia sem ela para não perder o registro
+            enviarParaPlanilha(scriptURL, {
+                page: window.location.pathname,
+                device: detectarDispositivo(),
+                local: "Localização Oculta",
+                ref: document.referrer || "Direto"
+            });
+        });
+});
+
+// Função auxiliar para deixar o nome do dispositivo mais amigável
+function detectarDispositivo() {
+    const ua = navigator.userAgent;
+    if (/android/i.test(ua)) return "Android";
+    if (/iPhone|iPad|iPod/i.test(ua)) return "iOS (iPhone/iPad)";
+    if (/Windows/i.test(ua)) return "Windows PC";
+    if (/Macintosh/i.test(ua)) return "Mac";
+    return "Outro";
+}
+
+function enviarParaPlanilha(url, d) {
+    fetch(`${url}?page=${d.page}&device=${d.device}&local=${d.local}&ref=${d.ref}`, {
+        method: 'GET',
+        mode: 'no-cors'
+    });
+}
+
 // Toggle Mobile Menu
 function toggleMenu() {
     const menu = document.getElementById('mobile-menu');
